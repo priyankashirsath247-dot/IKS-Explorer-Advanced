@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Indian Knowledge Systems Explorer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="brand" href="#home">✦ IKS EXPLORER</a>
+  <nav>
+    <a href="#home">Home</a><a href="#systems">Explore</a><a href="#connections">CS Bridge</a><a href="#lab">Lab</a><a href="#quiz">Quiz</a><button class="nav-icon" onclick="toggleTheme()" title="Toggle theme">☾</button>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-text">
+    <div class="hero-kicker"><span>✦</span> INDIAN KNOWLEDGE SYSTEMS <i></i> COMPUTATIONAL SYSTEMS</div>
+    <h1>Ancient Ideas.<br><span>Computational</span><br>Thinking.</h1>
+    <p>Explore selected Indian knowledge traditions through interactive demonstrations of <b>logic, grammar, binary patterns, classification</b> and <b>cryptography</b>.</p><div class="hero-tags"><span>01 Logic</span><span>02 Patterns</span><span>03 Grammar</span><span>04 Classification</span><span>05 Security</span></div>
+    <div class="hero-actions"><a class="button" href="#systems">Start Exploring <span>→</span></a><a class="ghost-button" href="#quiz">Take the Quiz</a></div><div class="scroll-note"><span></span> Scroll to discover the connections</div>
+  </div>
+  <div class="mandala">
+    <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+    <div class="center">IKS<br><small>EXPLORER</small></div>
+    <div class="orb o1">NYĀYA</div><div class="orb o2">PIṄGALA</div>
+    <div class="orb o3">PĀṆINI</div><div class="orb o4">AYURVEDA</div>
+    <div class="orb o5">ARTHAŚĀSTRA</div>
+  </div>
+</section>
+
+<section class="intro"><div class="pattern pattern-left">◌</div><div class="pattern pattern-right">✦</div>
+  <div class="section-title">
+    <div class="eyebrow">THE BIG IDEA</div>
+    <h2>Knowledge as a Structured System</h2>
+    <p>This educational explorer connects selected IKS topics with modern computer-science concepts such as formal rules, binary encoding, inference engines, expert systems and cryptography.</p>
+  </div>
+  <div class="stats">
+    <div><b>05</b><span>Interactive Topics</span></div>
+    <div><b>05</b><span>CS Connections</span></div>
+    <div><b>01</b><span>Learning Explorer</span></div>
+  </div>
+</section>
+
+<section id="systems" class="systems">
+  <div class="section-title">
+    <div class="eyebrow">EXPLORE THE SYSTEMS</div>
+    <h2>Five Doors to Computational Thinking</h2>
+    <p>Search, filter and open a topic to explore its IKS idea and computational connection.</p>
+  </div>
+  <div class="explore-tools"><div class="search-box"><span>⌕</span><input id="topicSearch" oninput="filterTopics()" placeholder="Search Nyaya, Panini, cryptography..." /></div><div class="filter-pills"><button class="filter active" onclick="setFilter('all',this)">All</button><button class="filter" onclick="setFilter('logic',this)">Logic</button><button class="filter" onclick="setFilter('patterns',this)">Patterns</button><button class="filter" onclick="setFilter('grammar',this)">Grammar</button><button class="filter" onclick="setFilter('classification',this)">Classification</button><button class="filter" onclick="setFilter('security',this)">Security</button></div></div>
+
+  <div class="topic-grid">
+    <article class="topic nyaya" data-category="logic" data-name="nyaya logic" onclick="openTopic('nyaya')">
+      <div class="icon">◈</div><span>01 • LOGIC</span><h3>Nyāya Logic</h3><p>Structured inference and the five-member syllogism.</p><button>Explore →</button><span class="save-mark" onclick="event.stopPropagation();toggleSave(event,this)">♡</span>
+    </article>
+    <article class="topic pingala" data-category="patterns" data-name="pingala chandasastra patterns" onclick="openTopic('pingala')">
+      <div class="icon">01</div><span>02 • PATTERNS</span><h3>Piṅgala</h3><p>Laghu–Guru patterns, binary representation and enumeration.</p><button>Explore →</button><span class="save-mark" onclick="event.stopPropagation();toggleSave(event,this)">♡</span>
+    </article>
+    <article class="topic panini" data-category="grammar" data-name="panini ashtadhyayi grammar nlp" onclick="openTopic('panini')">
+      <div class="icon">अ</div><span>03 • GRAMMAR</span><h3>Pāṇini</h3><p>Rule-based grammar, meta-rules and structured transformations.</p><button>Explore →</button><span class="save-mark" onclick="event.stopPropagation();toggleSave(event,this)">♡</span>
+    </article>
+    <article class="topic ayurveda" data-category="classification" data-name="ayurveda classification expert system" onclick="openTopic('ayurveda')">
+      <div class="icon">✿</div><span>04 • CLASSIFICATION</span><h3>Ayurvedic Rules</h3><p>Tridoṣa framework and simplified rule-based classification.</p><button>Explore →</button><span class="save-mark" onclick="event.stopPropagation();toggleSave(event,this)">♡</span>
+    </article>
+    <article class="topic artha" data-category="security" data-name="arthashastra cryptography cipher security" onclick="openTopic('artha')">
+      <div class="icon">⌁</div><span>05 • SECURITY</span><h3>Arthaśāstra Cryptography</h3><p>Secret communication and coded-message concepts.</p><button>Explore →</button><span class="save-mark" onclick="event.stopPropagation();toggleSave(event,this)">♡</span>
+    </article>
+  </div>
+</section>
+
+<section class="learning-dashboard" id="dashboard">
+  <div class="section-title"><div class="eyebrow">YOUR LEARNING DASHBOARD</div><h2>Learn • Practice • Track</h2><p>Your progress is stored in this browser, so you can continue learning without a login.</p></div>
+  <div class="dashboard-grid">
+    <div class="dash-card progress-card"><div class="dash-icon">◉</div><div><span>TOPICS EXPLORED</span><b id="topicProgress">0 / 5</b></div><div class="progress-track"><i id="topicBar"></i></div></div>
+    <div class="dash-card"><div class="dash-icon">★</div><div><span>QUIZ BEST SCORE</span><b id="bestScore">Not attempted</b></div><small>Try the quiz and improve your score.</small></div>
+    <div class="dash-card"><div class="dash-icon">🔖</div><div><span>SAVED TOPICS</span><b id="savedCount">0</b></div><button class="mini-btn" onclick="showSavedTopics()">View saved</button></div>
+    <div class="dash-card"><div class="dash-icon">☷</div><div><span>PERSONAL NOTES</span><b id="noteCount">0</b></div><button class="mini-btn" onclick="openNotes()">Open notes</button></div>
+  </div>
+</section>
+
+<section id="connections" class="connections">
+  <div class="section-title">
+    <div class="eyebrow">IKS → COMPUTER SCIENCE</div>
+    <h2>See the Connection</h2>
+  </div>
+  <div class="connection-table">
+    <div><b>Nyāya</b><span>Structured inference</span><em>→</em><strong>Inference engines / Logic</strong></div>
+    <div><b>Piṅgala</b><span>Binary-like patterns</span><em>→</em><strong>Binary systems / Combinatorics</strong></div>
+    <div><b>Pāṇini</b><span>Rule-based grammar</span><em>→</em><strong>Grammar / Parsing / NLP</strong></div>
+    <div><b>Ayurveda</b><span>Feature mapping</span><em>→</em><strong>Rule-based expert systems</strong></div>
+    <div><b>Arthaśāstra</b><span>Coded communication</span><em>→</em><strong>Cryptography / Security</strong></div>
+  </div>
+</section>
+
+<section class="demo" id="lab">
+  <div class="section-title">
+    <div class="eyebrow">MINI INTERACTIVE LAB</div>
+    <h2>Try a Simple Rule</h2>
+    <p>Select an input and see how a computational rule produces an output.</p>
+  </div>
+  <div class="rule-lab">
+    <select id="labInput">
+      <option value="nyaya">Smoke on a hill</option>
+      <option value="dry">Dryness + irregularity</option>
+      <option value="binary">Laghu–Guru pattern</option>
+      <option value="cipher">Secret message</option>
+    </select>
+    <button class="button" onclick="runLab()">Run Rule ✦</button>
+    <div id="labOutput">Choose an input and run the rule.</div>
+  </div>
+</section>
+
+<section id="quiz" class="quiz-section">
+  <div class="section-title">
+    <div class="eyebrow">CHECK YOUR KNOWLEDGE</div>
+    <h2>IKS Explorer Quiz</h2>
+  </div>
+  <div class="quiz">
+    <div id="qnum"></div><h3 id="question"></h3><div id="answers"></div>
+    <button class="button" id="next" disabled>Next →</button><p id="feedback"></p>
+  </div>
+</section>
+
+<div id="modal" class="modal" onclick="closeModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="close" onclick="closeModal()">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<div id="notesModal" class="modal" onclick="closeNotes(event)"><div class="modal-box notes-box" onclick="event.stopPropagation()"><button class="close" onclick="closeNotes()">×</button><div class="eyebrow">MY LEARNING NOTES</div><h2>Personal Notes</h2><p>Write your viva points, definitions or important ideas. Notes are saved locally in your browser.</p><textarea id="notesArea" placeholder="Example: Nyāya = structured inference..." oninput="saveNotes()"></textarea><div class="notes-actions"><span id="notesSaved">Saved automatically</span><button class="button" onclick="closeNotes()">Done ✓</button></div></div></div>
+
+<footer>
+  <div class="footer-brand"><b>✦ INDIAN KNOWLEDGE SYSTEMS EXPLORER</b><small>Ancient ideas • Modern computational thinking</small></div>
+  <div class="footer-meta"><span>IKS in Computational Systems</span><span>Educational Project</span><span>Made for Learning ✦</span></div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
